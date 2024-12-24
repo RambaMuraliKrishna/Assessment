@@ -9,10 +9,10 @@ document.querySelector('#app').innerHTML = `
     <div class="card">
       <form id="studentForm">
         <div class="form-group">
-          <input type="text" id="name" placeholder="Student Name" required>
+          <input type="text" id="name" placeholder="Student Name">
         </div>
         <div class="form-group">
-          <input type="number" id="grade" placeholder="Grade" min="0" max="100" required>
+          <input type="number" id="grade" placeholder="Grade">
         </div>
         <button type="submit">Add Student</button>
       </form>
