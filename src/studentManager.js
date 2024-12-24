@@ -11,6 +11,7 @@ export class StudentManager {
   // Should return "Pass" if grade is >= PASS_THRESHOLD, "Fail" otherwise
   checkPassOrFail(grade) {
     // Your code here
+
   }
 
   // TODO: Implement this function
@@ -30,6 +31,11 @@ export class StudentManager {
   // 4. Add the student to this.students array
   addStudent(name, grade) {
     // Your code here
+    const obj={
+      name:name,
+      grade:grade
+    };
+    this.students.push(obj);
   }
 
   // Helper function to get all students (already implemented)
