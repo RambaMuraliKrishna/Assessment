@@ -4,14 +4,18 @@
 export class StudentManager {
   constructor() {
     this.students = [];
-    this.PASS_THRESHOLD = 10;
+    this.PASS_THRESHOLD = 60;
   }
 
   // TODO: Implement this function
   // Should return "Pass" if grade is >= PASS_THRESHOLD, "Fail" otherwise
   checkPassOrFail(grade) {
     // Your code here
-
+    if(grade>=this.PASS_THRESHOLD){
+      return "Pass";
+    }else{
+      return "Fail";
+    }
   }
 
   // TODO: Implement this function
@@ -31,9 +35,12 @@ export class StudentManager {
   // 4. Add the student to this.students array
   addStudent(name, grade) {
     // Your code here
+    const status=this.checkPassOrFail(grade);
+
     const obj={
       name:name,
-      grade:grade
+      grade:grade,
+      status:status
     };
     this.students.push(obj);
   }
