@@ -25,6 +25,15 @@ export class StudentManager {
   // Should throw an error if validation fails
   validateStudent(name, grade) {
     // Your code here
+    if(typeof name!=="string"||name.trim().length===0){
+      throw  new Error("Name must be a non-empty string");
+
+    }
+    //let grade=Number(grade);
+    if(typeof Number(grade)!=="number"|| grade<0 || grade>100){
+      throw new Error("Grade must be a number between 0 and 100");
+    }
+    
   }
 
   // TODO: Implement this function
@@ -35,18 +44,24 @@ export class StudentManager {
   // 4. Add the student to this.students array
   addStudent(name, grade) {
     // Your code here
-    const status=this.checkPassOrFail(grade);
-
-    const obj={
-      name:name,
-      grade:grade,
-      status:status
-    };
-    this.students.push(obj);
+    try{
+      this.validateStudent(name,grade); 
+      const status=this.checkPassOrFail(grade);
+      const obj={
+        name:name,
+        grade:grade,
+        status:status
+      }; 
+      this.students.push(obj);
+      return obj;
+    }catch(error){
+      throw new Error(error.message);
+    }  
   }
 
   // Helper function to get all students (already implemented)
   getAllStudents() {
     return this.students;
+
   }
 }
