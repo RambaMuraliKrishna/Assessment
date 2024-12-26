@@ -30,7 +30,7 @@ export class StudentManager {
 
     }
     //let grade=Number(grade);
-    if(typeof Number(grade)!=="number"|| grade<0 || grade>100){
+    if(typeof Number(grade)!=="number"|| grade<0 || grade>100||isNaN(grade)){
       throw new Error("Grade must be a number between 0 and 100");
     }
     
